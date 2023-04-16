@@ -115,7 +115,7 @@ export const logoutController = async (req: Request, res: Response<IResponse>, n
     await AuthService.logoutUser(AUCHAN_REFRESH_TOKEN);
 
     // clear cookie
-    res.clearCookie('EXPENXY_REFRESH_TOKEN');
+    res.clearCookie('AUCHAN_REFRESH_TOKEN');
 
     return res.status(200).send({
       data: {

@@ -94,7 +94,7 @@ export const AuthService: IAuthService = {
           username: user.username,
           fullName: user.fullName,
         },
-        process.env.EXPENXY_LOGIN_ACCESS_SECRET!,
+        process.env.AUCHAN_LOGIN_ACCESS_SECRET!,
         { expiresIn: '15m' },
       );
 
@@ -105,7 +105,7 @@ export const AuthService: IAuthService = {
           username: user.username,
           fullName: user.fullName,
         },
-        process.env.EXPENXY_LOGIN_REFRESH_SECRET!,
+        process.env.AUCHAN_LOGIN_REFRESH_SECRET!,
         { expiresIn: '1d' },
       );
 
@@ -113,7 +113,7 @@ export const AuthService: IAuthService = {
 
       const dateNow = new Date();
       const expiresAt = new Date(
-        dateNow.setSeconds(dateNow.getSeconds() + Number(process.env.EXPENXY_LOGIN_REFRESH_EXPIRATION_PARAM)),
+        dateNow.setSeconds(dateNow.getSeconds() + Number(process.env.AUCHAN_LOGIN_REFRESH_EXPIRATION_PARAM)),
       ).toISOString();
 
       /* Create session */
