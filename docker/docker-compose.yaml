@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  database:
+    image: 'mysql:8' 
+    restart: unless-stopped
+    volumes:
+      - db:/var/lib/mysql-dev
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - '3307:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DB: auchan 
+
+  auchan-backend:
+    build:
+      context: ..
+      dockerfile: ./packages/backend/Dockerfile
+    depends_on:
+      - database
+    environment:
+      NODE_ENV: development
+      PORT: 4040
+      DATABASE_URL: ${DATABASE_URL}
+      AUCHAN_LOGIN_ACCESS_SECRET: ${AUCHAN_LOGIN_ACCESS_SECRET}
+      AUCHAN_LOGIN_ACCESS_EXPIRATION_PARAM : 900
+      AUCHAN_LOGIN_REFRESH_SECRET: ${AUCHAN_LOGIN_REFRESH_SECRET}
+      AUCHAN_LOGIN_REFRESH_EXPIRATION_PARAM: 3600
+    ports:
+      - '4040:4040'
+    restart: always
+
+  auchan-frontend:
+    build:
+      context: ..
+      dockerfile: ./packages/app/Dockerfile
+    environment:
+      VITE_BACKEND_URL: http://localhost:4040
+    ports:
+      - '5173:5173'
+volumes:
+  db: 
