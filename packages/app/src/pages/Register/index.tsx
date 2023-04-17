@@ -32,7 +32,7 @@ const Register = () => {
   const { error, isLoading, sendRequest } = useHttpRequest();
 
   const onSubmit: SubmitHandler<RegisterSchema> = async (data) => {
-    console.log('data', data);
+    // console.log('data', data);
 
     const response = await sendRequest({
       method: 'POST',

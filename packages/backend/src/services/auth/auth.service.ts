@@ -98,7 +98,7 @@ export const AuthService: IAuthService = {
         { expiresIn: '15m' },
       );
 
-      console.log('accessToken generated', accessToken);
+      // console.log('accessToken generated', accessToken);
 
       const refreshToken = jwt.sign(
         {
@@ -109,7 +109,7 @@ export const AuthService: IAuthService = {
         { expiresIn: '1d' },
       );
 
-      console.log('refreshToken generated', refreshToken);
+      // console.log('refreshToken generated', refreshToken);
 
       const dateNow = new Date();
       const expiresAt = new Date(
@@ -141,7 +141,7 @@ export const AuthService: IAuthService = {
       }
 
       if (error instanceof Error) {
-        console.log('instace of error', error);
+        // console.log('instace of error', error);
         const { message } = error;
         throw new Error(message);
       }
@@ -177,7 +177,7 @@ export const AuthService: IAuthService = {
       }
 
       if (error instanceof Error) {
-        console.log('instace of error', error);
+        // console.log('instace of error', error);
         const { message } = error;
         throw new Error(message);
       }
@@ -205,7 +205,7 @@ export const AuthService: IAuthService = {
       }
 
       if (error instanceof Error) {
-        console.log('instace of error', error);
+        // console.log('instace of error', error);
         const { message } = error;
         throw new Error(message);
       }

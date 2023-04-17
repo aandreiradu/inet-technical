@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(authRoutes);
 
 app.use((err: CustomError, req: Request, res: Response<ErrorResponse>, next: NextFunction) => {
-  console.log('error custom middleware', err);
+  // console.log('error custom middleware', err);
 
   if (err instanceof Prisma.PrismaClientKnownRequestError) {
     return res.status(500).send({

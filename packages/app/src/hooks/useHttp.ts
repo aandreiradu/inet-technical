@@ -110,7 +110,7 @@ export const useHttpRequest = () => {
       return response.data;
     } catch (error) {
       if (error instanceof AxiosError) {
-        console.log('ERROR REDUCER INSTANCE OF ERROR', error);
+        // console.log('ERROR REDUCER INSTANCE OF ERROR', error);
         return dispatch({
           type: ACTION_TYPES.ERROR,
           payload: {
@@ -121,8 +121,8 @@ export const useHttpRequest = () => {
       }
 
       const customError: any = error;
-      console.log('error useHttp', error);
-      console.log('ERROR REDUCER CUSTOM ERROR', error);
+      // console.log('error useHttp', error);
+      // console.log('ERROR REDUCER CUSTOM ERROR', error);
       dispatch({
         type: ACTION_TYPES.ERROR,
         payload: {

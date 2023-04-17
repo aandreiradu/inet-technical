@@ -13,7 +13,7 @@ export const registerController = async (
 
     if (!schemaResult.success) {
       const errors = schemaResult.error.flatten();
-      console.log('errors', errors);
+      // console.log('errors', errors);
 
       const errorObj = {
         message: 'Error validation',

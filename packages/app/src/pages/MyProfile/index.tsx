@@ -32,7 +32,7 @@ const MyProfile = () => {
           isExternal: true,
         });
 
-        console.log('response', response);
+        // console.log('response', response);
         if (response) {
           const { data, status } = response;
 
