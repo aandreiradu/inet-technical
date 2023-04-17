@@ -5,6 +5,20 @@
 - [Docker](https://docs.docker.com/get-docker/)
 - [PNPM](https://pnpm.io/)
 
+### Info
+
+- Monorepo structure :
+
+  - frontend : packages/app
+  - backend : packages/backend
+
+- If you wish to install more dependencies, please follow the structure from `root` :
+
+```sh
+    pnpm i --filter app some-dep => this will install the dependency into the package.json from frontend
+    pnpm i --filter backend some-dep => this will install the dependency into the package.json from backend
+```
+
 ### Environment Setup
 
 ```sh
