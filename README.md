@@ -52,8 +52,11 @@ From the root of the project:
 # Create a .env based on the .env file from /docker/.env.example OR run
 cp ./docker/.env.example ./docker/.env
 
-# This will start both the web and backend application
+# Run 
 pnpm compose
+
+# This will start both the web and backend application
+
 ```
 
 After running the command above you will have:
